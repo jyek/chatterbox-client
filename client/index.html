@@ -16,31 +16,38 @@
     <script src="scripts/app.js"></script>
   </head>
   <body>
-    <div class="username-wrap"><i class="fa fa-2x fa-github-alt"></i><span class="username"></span></div>
-    <div class="chat-wrap">
-      <div class="chat-home"><i class="fa fa-2x fa-home"></i></div>
-      <div class="chat-header">
-        <h2><i class="fa fa-stack-exchange fa-2x valign"></i> Chatterbox</h2>
+    <div class="spinner"><i class="fa fa-cog fa-spin fa-2x"></i></div>
+    <div class="container">
+      <div class="sidebar-wrap col-md-4">
+        <div class="chat-home"><i class="fa fa-2x fa-home"></i></div>
+        <div class="centered"><i class="fa fa-4x fa-github-alt"></i></div>
+        <div class="username centered"><h4></h4></div>
         <hr>
-        <h5 class="chat-subheader"><strong>Room: <span class="chat-roomname"></span></strong></h5>
+        <h5 class="chat-subheader centered"><strong>Room: <span class="chat-roomname"></span></strong></h5>
         <div class="chatrooms"></div>
         <div class="clearfix"></div>
-        <h5 class="friends-header"><strong>Friends:</strong></h5>
+        <hr>
+        <h5 class="friends-header centered"><strong>Friends:</strong></h5>
         <div class="friends"></div>
         <div class="clearfix"></div>
       </div>
-      <div class="chat-form-wrap">
-        <form class="chat-form form-inline">
-          <input class="form-control my-message" placeholder="Compose new message.." type="text"></input>
-          <input class="form-control my-roomname" placeholder="For room.." type="text"></input>
-          <button type="button" class="btn btn-primary onclick-submit"><i class="fa fa-twitter"></i></button>
-        </form>
-      </div>
-      <div class="chat">
-        <!-- msgs go here -->
-      </div>
-      <div class="chat-footer">
-        <p>..the end..</p>
+      <div class="chat-wrap col-md-6">
+        <div class="chat-header">
+          <h2><i class="fa fa-stack-exchange fa-2x valign"></i> Chatterbox</h2>
+        </div>
+        <div class="chat-form-wrap">
+          <form class="chat-form form-inline">
+            <input class="form-control my-message" placeholder="Compose new message.." type="text"></input>
+            <input class="form-control my-roomname" placeholder="For room.." type="text"></input>
+            <button type="button" class="btn btn-primary onclick-submit"><i class="fa fa-twitter"></i></button>
+          </form>
+        </div>
+        <div class="chat">
+          <!-- msgs go here -->
+        </div>
+        <div class="chat-footer">
+          <p>..the end..</p>
+        </div>
       </div>
     </div>
   </body>

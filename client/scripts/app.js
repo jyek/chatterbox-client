@@ -30,30 +30,45 @@ app.server = 'https://api.parse.com/1/classes/chatterbox';
 // Current roomname
 app.roomname = '';
 
-// Object that contains roomnames
+// Object that contains roomnames and friends
 app.roomnames = {};
 app.friends = {};
+
+// Loading spinner
+app.loading = false;
+
+app.startLoading = function(){
+  if (!app.loading){
+    $('.spinner').show();
+    app.loading = true;
+  }
+};
+
+app.stopLoading = function(){
+  $('.spinner').hide();
+  app.loading = false;
+};
 
 app.init = function(){
   // get and update username
   app.username = GetParams.username;
-  $('.username').text(app.username);
+  $('.username h4').text(app.username);
 
   // gets new messages
   app.changeRoom('');
-  app.fetch();
   setInterval(app.fetch, 5000);
 
   // return home
   $('.chat-home').on('click', function(){
     app.changeRoom('');
-    app.fetch();
   });
 
   // handles posting new message
   $('.onclick-submit').on('click', function(){
     var msg = $('.my-message').val();
     var room = $('.my-roomname').val();
+    $('.my-message').val('');
+    $('.my-roomname').val('');
     app.send(msg, room);
   });
 };
@@ -86,13 +101,14 @@ app.fetchRooms = function(){
   var roomnames = app.roomnames;
   $('.chatrooms').empty();
   for (var roomname in roomnames){
-    $room = $('<span class="chatroom"></span>');
-    $room.text(roomname);
-    $('.chatrooms').append($room);
-    $('span.chatroom').on('click', function(){
-      app.changeRoom( $(this).text() );
-      app.fetch();
-    });
+    if (roomname !== ""){
+      $room = $('<span class="chatroom"></span>');
+      $room.text(roomname);
+      $('.chatrooms').append($room);
+      $('span.chatroom').on('click', function(){
+        app.changeRoom( $(this).text() );
+      });
+    }
   }
 };
 
@@ -108,14 +124,16 @@ app.updateFriends = function(){
 app.changeRoom = function(roomname){
   app.roomname = roomname;
   if (roomname === ''){
-    $('.chat-roomname').text('All');
+    $('.chat-roomname').text('All Rooms');
   } else {
     $('.chat-roomname').text(roomname);
   }
+  app.fetch();
 };
 
 app.fetch = function(){
   var data = '';
+  app.startLoading();
   if (app.roomname !== ''){
     data = encodeURIComponent('where={"roomname":' + JSON.stringify(app.roomname) + '}');
   }
@@ -126,6 +144,9 @@ app.fetch = function(){
     data: data,
     contentType: 'application/json',
     success: function (data) {
+      // set loading back to false
+      app.stopLoading();
+
       // console.log('chatterbox: Message received', data);
       $chat = $('.chat');
       $chat.empty();
@@ -156,6 +177,11 @@ app.fetch = function(){
 
         $msgRoomname = $('<div class="msg-roomname"></div>');
         $msgRoomname.text('(' + msg.roomname + ')');
+        $msgRoomname.on('click', function(){
+          var room = $(this).text().replace(/[()]/g,'');
+          console.log(room);
+          app.changeRoom(room);
+        });
 
         $clearfix = $('<div class="clearfix"></div>');
 

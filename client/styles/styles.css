@@ -1,20 +1,29 @@
 body {
   background: url("../images/bg.jpg") no-repeat center center fixed;
   font-family: "Open Sans", sans-serif;
-  padding-top: 0px;
+  margin-top: 15px;
+  margin-bottom: 30px;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
 
+.spinner {
+  margin-right: 15px;
+  background-color: rgb(16, 34, 43);
+  padding: 10px;
+  color: #FFF;
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+}
+
 .chat-wrap {
+  float: left;
   background: #FFF;
-  width: 60%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 15px;
-  margin-bottom: 30px;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
   border: 1px solid #e1e8ed;
   -webkit-border-radius: 10px;
      -moz-border-radius: 10px;
@@ -31,14 +40,14 @@ body {
   padding: 10px;
 }
 
-/* Username */
+/* Sidebar */
 
-.username-wrap {
-  left: 10px;
-  position: absolute;
+.sidebar-wrap {
+  float: left;
   padding: 10px;
-  background-color: rgb(230, 230, 235);
-  border: 1px solid rgb(245, 245, 245);
+  margin-right: 20px;
+  margin-bottom: 20px;
+  background-color: rgb(245, 245, 245);
   -webkit-border-radius: 10px;
      -moz-border-radius: 10px;
           border-radius: 10px;
@@ -59,12 +68,20 @@ body {
   vertical-align: middle;
 }
 
+.centered {
+  text-align: center;
+}
+
 /* Header */
 
 .chat-home {
   position: absolute;
   padding: 5px;
   cursor: pointer;
+}
+
+.chat-home:hover {
+  color: rgb(149, 171, 99);
 }
 
 .chat-header {
@@ -122,7 +139,7 @@ span.chatroom {
   margin: 2px 4px;
   padding: 3px 4px;
   cursor: pointer;
-  background-color: rgb(200, 200, 200);
+  background-color: rgb(189, 214, 132);
   -webkit-border-radius: 5px;
      -moz-border-radius: 5px;
           border-radius: 5px;
@@ -138,7 +155,8 @@ span.friend-name {
   float: left;
   margin: 2px 4px;
   padding: 3px 4px;
-  background-color: rgb(217, 232, 245);
+  color: #FFF;
+  background-color: rgb(149, 171, 99);
   -webkit-border-radius: 5px;
      -moz-border-radius: 5px;
           border-radius: 5px;
