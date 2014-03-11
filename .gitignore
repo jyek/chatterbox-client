@@ -25,6 +25,7 @@ lib-cov
 pids
 logs
 results
+bower_components
 
 npm-debug.log
 node_modules
