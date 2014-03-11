@@ -2,19 +2,42 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>chatterbox</title>
+    <title>ChatterBox</title>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="styles/styles.css">
-
-    <!-- dependencies -->
-    <script src="bower_components/jquery/jquery.min.js"></script>
-    <!-- your scripts -->
+  <!-- dependencies -->
+  	<script src="../bower_components/jquery/jquery.min.js"></script>
+  	<script src="../bower_components/underscore/underscore.js"></script>
+	<!-- your scripts -->
     <script src="scripts/config.js"></script>
     <script src="scripts/app.js"></script>
   </head>
   <body>
-    <div id="main">
-      <h1>chatterbox</h1>
-      <!-- Your HTML goes here! -->
+    <div class="username"></div>
+    <div class="chat-wrap">
+      <div class="chat-home"><i class="fa fa-2x fa-home"></i></div>
+      <div class="chat-header">
+        <h2><i class="fa fa-stack-exchange fa-2x valign"></i> Chatterbox</h2>
+        <hr>
+        <h5 class="chat-subheader"><strong>Room: <span class="chat-roomname"></span></strong></h5>
+        <div class="chatrooms"></div>
+      </div>
+      <div class="chat-form-wrap">
+        <form class="chat-form form-inline">
+          <input class="form-control my-message" placeholder="Compose new message.." type="text"></input>
+          <input class="form-control my-roomname" placeholder="For room.." type="text"></input>
+          <button type="button" class="btn btn-primary onclick-submit"><i class="fa fa-twitter"></i></button>
+        </form>
+      </div>
+      <div class="chat">
+        <!-- msgs go here -->
+      </div>
+      <div class="chat-footer">
+        <p>..the end..</p>
+      </div>
     </div>
   </body>
 </html>
