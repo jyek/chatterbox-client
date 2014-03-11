@@ -32,6 +32,7 @@ app.roomname = '';
 
 // Object that contains roomnames
 app.roomnames = {};
+app.friends = {};
 
 app.init = function(){
   // get and update username
@@ -41,6 +42,7 @@ app.init = function(){
   // gets new messages
   app.changeRoom('');
   app.fetch();
+  setInterval(app.fetch, 5000);
 
   // return home
   $('.chat-home').on('click', function(){
@@ -94,6 +96,15 @@ app.fetchRooms = function(){
   }
 };
 
+app.updateFriends = function(){
+  $('.friends').empty();
+  _.each(app.friends, function(v, friendname){
+    var $f = $('<span class="friend-name"></span>');
+    $f.text(friendname);
+    $('.friends').append($f);
+  });
+};
+
 app.changeRoom = function(roomname){
   app.roomname = roomname;
   if (roomname === ''){
@@ -129,10 +140,19 @@ app.fetch = function(){
         $msgWrap = $('<div class="msg-wrap"></div>');
 
         $msgText = $('<div class="msg-text"></div>');
+        if (app.friends.hasOwnProperty(msg.username)){
+          $msgText.attr('class', 'bold');
+        }
         $msgText.text(msg.text);
 
         $msgUsername = $('<div class="msg-username"></div>');
         $msgUsername.text(msg.username);
+        $msgUsername.on('click', function(){
+          var friend = $(this).text();
+          app.friends[friend] = true;
+          app.updateFriends();
+          app.fetch();
+        });
 
         $msgRoomname = $('<div class="msg-roomname"></div>');
         $msgRoomname.text('(' + msg.roomname + ')');
@@ -155,8 +175,6 @@ app.fetch = function(){
       console.error('chatterbox: Failed to get message');
     }
   });
-
-  setTimeout(app.fetch, 3000);
 };
 
 $(document).ready(function(){

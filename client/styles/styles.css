@@ -33,18 +33,27 @@ body {
 
 /* Username */
 
-.username {
+.username-wrap {
   left: 10px;
   position: absolute;
   padding: 10px;
-  background-color: rgb(235, 235, 235);
+  background-color: rgb(230, 230, 235);
+  border: 1px solid rgb(245, 245, 245);
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+}
+
+.username {
+  padding-left: 5px;
   color: #000;
-  -webkit-border-radius: 5px;
-     -moz-border-radius: 5px;
-          border-radius: 5px;
 }
 
 /* Helpers */
+
+.bold {
+  font-weight: 700;
+}
 
 .valign {
   vertical-align: middle;
@@ -104,9 +113,35 @@ body {
 
 /* Chatroom */
 
+.chatrooms {
+  margin-left: 10px;
+}
+
 span.chatroom {
-  padding: 0px 5px;
+  float: left;
+  margin: 2px 4px;
+  padding: 3px 4px;
   cursor: pointer;
+  background-color: rgb(200, 200, 200);
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+}
+
+/* Friends */
+
+.friends {
+  margin-left: 10px;
+}
+
+span.friend-name {
+  float: left;
+  margin: 2px 4px;
+  padding: 3px 4px;
+  background-color: rgb(217, 232, 245);
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
 }
 
 /* Msg */
@@ -119,7 +154,7 @@ span.chatroom {
 .msg-username {
   float: left;
   font-weight: bold;
-  padding-right: 0.5em;
+  padding-right: 0.3em;
   cursor: pointer;
   color: #4387fd;
 }
@@ -127,7 +162,7 @@ span.chatroom {
 .msg-roomname {
   float: left;
   font-weight: bold;
-  padding-right: 0.5em;
+  padding-right: 0.3em;
   cursor: pointer;
   color: #4387fd;
 }

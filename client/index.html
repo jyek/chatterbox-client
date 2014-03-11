@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>ChatterBox</title>
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Vollkorn:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="styles/styles.css">
@@ -16,7 +16,7 @@
     <script src="scripts/app.js"></script>
   </head>
   <body>
-    <div class="username"></div>
+    <div class="username-wrap"><i class="fa fa-2x fa-github-alt"></i><span class="username"></span></div>
     <div class="chat-wrap">
       <div class="chat-home"><i class="fa fa-2x fa-home"></i></div>
       <div class="chat-header">
@@ -24,6 +24,10 @@
         <hr>
         <h5 class="chat-subheader"><strong>Room: <span class="chat-roomname"></span></strong></h5>
         <div class="chatrooms"></div>
+        <div class="clearfix"></div>
+        <h5 class="friends-header"><strong>Friends:</strong></h5>
+        <div class="friends"></div>
+        <div class="clearfix"></div>
       </div>
       <div class="chat-form-wrap">
         <form class="chat-form form-inline">
